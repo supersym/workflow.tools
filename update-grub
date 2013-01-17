@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo mount -n -o remount,rw /boot
+sudo -u root -i "grub-mkconfig > /boot/grub/grub.cfg"

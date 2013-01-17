@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+from AUR import AUR
+from sys import argv
+
+pkgs = set(argv[1:])
+aur = AUR(log_func=lambda x,y: None)
+
+aurpkgs = set(p['Name'] for p in aur.info(pkgs))
+nonaurpkgs = pkgs - aurpkgs
+
+print("Found in AUR")
+for p in aurpkgs:
+  print(" ",p)
+
+print("Not found in AUR")
+for p in nonaurpkgs:
+  print(" ",p)
